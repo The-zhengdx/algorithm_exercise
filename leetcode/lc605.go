@@ -1,12 +1,4 @@
-package main
-
-import "fmt"
-
-func main() {
-	flowerbed, n := []int{1, 0, 0, 0, 1}, 2
-	res := canPlaceFlowers(flowerbed, n)
-	fmt.Println(res)
-}
+package leetcode
 
 func canPlaceFlowers(flowerbed []int, n int) bool {
 	l := len(flowerbed)

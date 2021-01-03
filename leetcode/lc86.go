@@ -6,6 +6,7 @@ type ListNode struct {
 }
 
 func partition(head *ListNode, x int) *ListNode {
+	// 添加头节点，方便处理
 	realHead := new(ListNode)
 	realHead.Next = head
 	// 找到第一个大于或等于x节点的位置
