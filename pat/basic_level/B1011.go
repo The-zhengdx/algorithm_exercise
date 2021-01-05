@@ -10,5 +10,4 @@ func main() {
 		fmt.Scanf("%d %d %d\n", &a, &b, &c)
 		fmt.Printf("Case #%d: %v\n", i, a+b > c)
 	}
-	fmt.Print()
 }
