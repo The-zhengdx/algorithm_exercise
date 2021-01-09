@@ -1,33 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
 
 func main() {
-	n := 0
-	fmt.Scanf("%d", &n)
+	sc := bufio.NewScanner(os.Stdin)
+	buf := make([]byte, 1024*1024)
+	sc.Buffer(buf, len(buf))
+	sc.Scan()
 
-	dist, btw := make([]int, n+1), 0
-	for i := 1; i < n+1; i++ {
-		if i < n {
-			fmt.Scanf("%d", &btw)
-		} else {
-			fmt.Scanf("%d\n", &btw)
-		}
-		dist[i] = dist[i-1] + btw
+	inputStrs := strings.Split(sc.Text(), " ")
+	l := len(inputStrs)
+	inputNums := make([]int, l)
+	for i := 0; i < l; i++ {
+		inputNums[i], _ = strconv.Atoi(inputStrs[i])
+	}
+
+	dist := make([]int, l)
+	for i := 1; i < l; i++ {
+		dist[i] = dist[i-1] + inputNums[i]
 	}
 
 	var m, from, to, clockWiseDist int
-	fmt.Scanf("%d\n", &m)
+	sc.Scan()
+	m, _ = strconv.Atoi(sc.Text())
 	for i := 0; i < m; i++ {
-		fmt.Scanf("%d %d\n", &from, &to)
+		sc.Scan()
+		from, _ = strconv.Atoi(strings.Split(sc.Text(), " ")[0])
+		to, _ = strconv.Atoi(strings.Split(sc.Text(), " ")[1])
 		if from > to {
 			from, to = to, from
 		}
 		clockWiseDist = dist[to-1] - dist[from-1]
-		if clockWiseDist < dist[n]-clockWiseDist {
+		if clockWiseDist < dist[l-1]-clockWiseDist {
 			fmt.Println(clockWiseDist)
 		} else {
-			fmt.Println(dist[n] - clockWiseDist)
+			fmt.Println(dist[l-1] - clockWiseDist)
 		}
+
 	}
 }
