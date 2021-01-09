@@ -26,7 +26,7 @@ func main() {
 
 	// 洗牌
 	for i := 0; i < k; i++ {
-		from, to := i%k, (i+1)%k
+		from, to := i%2, (i+1)%2
 		for j := 0; j < numOfCards; j++ {
 			cards[to][order[j]-1] = cards[from][j]
 		}
