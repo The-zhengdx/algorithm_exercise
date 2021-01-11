@@ -27,7 +27,7 @@ func main() {
 	for i := 0; i < l; i += 2 {
 		if inputNums[i] != 0 {
 			if flag {
-				fmt.Print("_")
+				fmt.Print(" ")
 			}
 			flag = true
 			fmt.Printf("%d %d", inputNums[i], inputNums[i+1])
