@@ -8,6 +8,8 @@ import (
 
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
+	buf := make([]byte, 1024*1024)
+	sc.Buffer(buf, len(buf))
 	sc.Scan()
 	brokenKeys := sc.Text()
 	sc.Scan()
