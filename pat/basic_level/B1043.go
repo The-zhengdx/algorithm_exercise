@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	str, m, cnt := "", [6]string{"P", "A", "T", "e", "s", "t"}, [6]int{0}
+	str, m, cnt := "", [6]string{"P", "A", "T", "e", "s", "t"}, [6]int{}
 	fmt.Scanf("%s\n", &str)
 	for i, l := 0, len(str); i < l; i++ {
 		switch str[i] {
